@@ -1,0 +1,18 @@
+auth:
+  existingSecret: postgres-auth
+  username: app
+  database: appdb
+
+architecture: standalone
+
+primary:
+  persistence:
+    enabled: false
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 1Gi
+

@@ -1,0 +1,16 @@
+name: insecure-demo
+on:
+  workflow_dispatch:
+
+jobs:
+  leak-static-secret:
+    runs-on: ubuntu-latest
+    env:
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Anti-pattern demo
+        run: |
+          echo "This workflow intentionally demonstrates static secret usage."
+          echo "Never print secrets in real pipelines."
+
